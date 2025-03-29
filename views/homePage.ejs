@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h2>Categories</h2>
+    <% if(locals.categories){%>
+        <ul>
+            <% categories.forEach(cat=>{ %>
+                <%-include('categoryCard.ejs',{cat:cat}) %>
+            <%})%>
+        </ul>
+    <% }%>
+
+    <br>
+    <br>
+    <a href="/categories/create">Add new category</a>
+    <a href="/items/create">Add New Item</a>
+</body>
+</html>

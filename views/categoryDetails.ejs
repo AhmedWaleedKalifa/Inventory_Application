@@ -1,0 +1,10 @@
+<% if(locals.category){%>
+<h2><%= category.name%></h2>
+<p>Description: <%= category.description%></p>
+<ul>
+    <% items.forEach(item=>{ %>
+        <%-include('itemCard.ejs',{item:item,categoryId:category.id})%>
+    <% }) %>
+</ul>
+
+<% }%>

@@ -1,0 +1,24 @@
+<h3><%= title%></h3>
+<% if(locals.errors){ %>
+    <ul>
+        <% errors.forEach(error=>{ %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>
+<form action="/categories/create" method="Post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" required>
+    <p>Items</p>
+    <% if(locals.allItems){%>
+        <% for(let i =0;i< allItems.length;i++){%>
+            <label for="<%= i%>"><%= allItems[i].name%></label>
+            <input type="checkbox" name="items" id="<%= i%>" value="<%= allItems[i].id%>">
+        <%} %>
+    <%}%>
+    <button type="submit">Create</button>
+</form>

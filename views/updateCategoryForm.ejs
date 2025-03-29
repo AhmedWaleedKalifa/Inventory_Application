@@ -1,0 +1,28 @@
+<h3><%= title%></h3>
+<% if(locals.errors){ %>
+    <ul>
+        <% errors.forEach(error=>{ %>
+            <li>
+                <%= error.msg %>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>
+<form action="/categories/update/<%= oldCategory.id%>" method="Post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= oldCategory.name%>">
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" value="<%=oldCategory.description%>">
+    <p>Items</p>
+    <% if(locals.items){%>
+        <% for(let i=0;i< items.length;i++){ %>
+            <label for="<%=i%>"><%=items[i].name%></label>
+            <% if(categoryItemsIds.includes(items[i].id)){%>
+                <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" checked>
+            <%}else{%>
+            <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>">
+            <%}%>
+        <% }%>
+    <% }%>
+    <button type="submit">Update</button>
+</form>

@@ -1,0 +1,12 @@
+<li>
+    Name:<%= item.name%>
+    Description: <%=item.description%>
+    <a href="/items/get/<%= item.id %>">
+        Expand
+    </a>
+    <form action="/items/delete/<%= item.id %>" method="post">
+        <input type="hidden" value="<%= categoryId%>" name="categoryId">
+        <button type="submit" onclick="return confirm('do you want to delete this item')">Delete</button>
+    </form>
+    <a href="/items/update/<%= item.id%>">Update</a>
+</li>
