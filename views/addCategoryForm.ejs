@@ -1,24 +1,52 @@
-<h3><%= title%></h3>
-<% if(locals.errors){ %>
-    <ul>
-        <% errors.forEach(error=>{ %>
-            <li>
-                <%= error.msg %>
-            </li>
-        <% }) %>
-    </ul>
-<% } %>
-<form action="/categories/create" method="Post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required>
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" required>
-    <p>Items</p>
-    <% if(locals.allItems){%>
-        <% for(let i =0;i< allItems.length;i++){%>
-            <label for="<%= i%>"><%= allItems[i].name%></label>
-            <input type="checkbox" name="items" id="<%= i%>" value="<%= allItems[i].id%>">
-        <%} %>
-    <%}%>
-    <button type="submit">Create</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+   
+   <main>
+    <h2>
+        <%= title%>
+    </h2>
+    
+    <div class="container form">
+        <div class="error_box">
+            <% if(locals.errors){ %>
+                    <% errors.forEach(error=>{ %>
+                        <p class="error">
+                            <%= error.msg %>
+                        </p>
+                    <% }) %>
+            <% } %>
+        </div>
+       
+                <form action="/categories/create" method="Post">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" required>
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" id="description" required>
+                    <p>Items</p>
+                    <div class="checkbox">
+                        <% if(locals.allItems){%>
+                            <% for(let i=0;i< allItems.length;i++){%>
+                                <label for="<%= i%>">
+                                    <%= allItems[i].name%>
+                                </label>
+                                <input type="checkbox" name="items" id="<%= i%>" value="<%= allItems[i].id%>">
+                                <%} %>
+                                    <%}%>
+                    </div>
+                    <button type="submit">Create</button>
+                </form>
+                <div class="error_box"></div>
+    </div>
+   </main>
+</body>
+
+</html>

@@ -1,11 +1,13 @@
 <li>
-    Name:<%= cat.name%>
-    Description: <%=cat.description%>
-    <a href="/categories/get/<%= cat.id %>">
-        Expand
-    </a>
-    <form action="/categories/delete/<%= cat.id %>" method="post">
-        <button type="submit" onclick="return confirm('do you want to delete this category at there items')">Delete</button>
-    </form>
-    <a href="/categories/update/<%= cat.id%>">Update</a>
+    <b>Name:<%= cat.name%></b>
+    <span>Description: <%=cat.description%></span>
+    <div class="buttons">
+        <a href="/categories/get/<%= cat.id %>">
+            Expand
+        </a>
+        <form action="/categories/delete/<%= cat.id %>" method="post">
+            <button type="submit" onclick="return confirm('do you want to delete this category at there items')">Delete</button>
+        </form>
+        <a href="/categories/update/<%= cat.id%>">Update</a>
+    </div>
 </li>

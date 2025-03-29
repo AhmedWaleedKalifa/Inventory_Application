@@ -1,28 +1,55 @@
-<h3><%= title%></h3>
-<% if(locals.errors){ %>
-    <ul>
-        <% errors.forEach(error=>{ %>
-            <li>
-                <%= error.msg %>
-            </li>
-        <% }) %>
-    </ul>
-<% } %>
-<form action="/categories/update/<%= oldCategory.id%>" method="Post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" value="<%= oldCategory.name%>">
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" value="<%=oldCategory.description%>">
-    <p>Items</p>
-    <% if(locals.items){%>
-        <% for(let i=0;i< items.length;i++){ %>
-            <label for="<%=i%>"><%=items[i].name%></label>
-            <% if(categoryItemsIds.includes(items[i].id)){%>
-                <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" checked>
-            <%}else{%>
-            <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>">
-            <%}%>
-        <% }%>
-    <% }%>
-    <button type="submit">Update</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+   <main>
+    <h2><%= title%></h2>
+
+    <div class="container form">
+        <div class="error_box">
+            <% if(locals.errors){ %>
+                    <% errors.forEach(error=>{ %>
+                        <p class="error">
+                            <%= error.msg %>
+                        </p>
+                    <% }) %>
+            <% } %>
+        </div>
+        <form action="/categories/update/<%= oldCategory.id%>" method="Post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="<%= oldCategory.name%>">
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" value="<%=oldCategory.description%>">
+            <p>Items</p>
+            <div class="checkbox">
+                <% if(locals.items){%>
+                    <% for(let i=0;i< items.length;i++){ %>
+                        <label for="<%=i%>"><%=items[i].name%></label>
+                        <% if(categoryItemsIds.includes(items[i].id)){%>
+                            <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" checked>
+                        <%}else{%>
+                        <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>">
+                        <%}%>
+                    <% }%>
+                <% }%>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+            <div class="error_box">
+                <% if(locals.errors){ %>
+                        <% errors.forEach(error=>{ %>
+                            <p class="error">
+                                <%= error.msg %>
+                            </p>
+                        <% }) %>
+                <% } %>
+            </div>
+    </div>
+   </main>
+</body>
+</html>

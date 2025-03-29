@@ -6,7 +6,7 @@ const app=express();
 require("dotenv").config();
 const path=require("node:path")
 const PORT=process.env.PORT;
-app.use(express.static(path.join(__dirname,"static")));
+app.use(express.static(path.join(__dirname,"/static")));
 
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");

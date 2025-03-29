@@ -24,7 +24,7 @@ module.exports.categoryItemsGet=async function (req, res) {
    const category = await db.getCategoryById(id);
    const items = await db.getAllItemsFromCategory(id);
 
-   res.render("categoryDetails", { category: category, items: items })
+   res.render("categoryDetails", { title:"Category details",category: category, items: items })
 }
 module.exports.deleteCategoryPost=async function (req, res) {
    const id = req.params.id;

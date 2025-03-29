@@ -1,6 +1,27 @@
-<% if(locals.item){%>
-    <h2><%= item.name%></h2>
-    <p>Description: <%= item.description%></p>
-    <p>Quantity: <%= item.quantity%></p>
-    <p>Price: <%= item.price%></p>
-<% }%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2><%=title %></h2>
+    <main>
+        <div class="container">
+            <div class="items_inner_container">
+                <div class="small_container">
+                <% if(locals.item){%>
+                    <h3><%= item.name%></h3>
+                    <h4>Description: <%= item.description%></h4>
+                    <h4>Quantity: <%= item.quantity%></h4>
+                    <h4>Price: <%= item.price%></h4>
+                <% }%>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

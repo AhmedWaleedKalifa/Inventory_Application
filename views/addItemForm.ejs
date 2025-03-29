@@ -1,28 +1,49 @@
-<h3><%=title%></h3>
-<% if(locals.errors){ %>
-    <ul>
-        <% errors.forEach(error=>{ %>
-            <li>
-                <%= error.msg %>
-            </li>
-        <% }) %>
-    </ul>
-<% } %>
-<form action="/items/create" method="Post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="description" required>
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" required>
-    <label for="price">Price</label>
-    <input type="number" id="price" name="price" required>
-    <p>categories</p>
-    <% if(locals.categories){%>
-        <% for(let i=0;i< categories.length;i++){ %>
-            <label for="<%=i%>"><%=categories[i].name%></label>
-            <input type="checkbox" value="<%= categories[i].id %>" name="category" id="<%= i%>">
-        <% }%>
-    <% }%>
-    <button type="submit">Add item</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <main>
+    <h2><%=title%></h2>
+
+    <div class="container form">
+            <div class="error_box">
+                <% if(locals.errors){ %>
+                        <% errors.forEach(error=>{ %>
+                            <p class="error">
+                                <%= error.msg %>
+                            </p>
+                        <% }) %>
+                <% } %>
+            </div>
+        <form action="/items/create" method="Post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" required>
+            <p>categories</p>
+            <div class="checkbox">
+            <% if(locals.categories){%>
+                <% for(let i=0;i< categories.length;i++){ %>
+                    <label for="<%=i%>"><%=categories[i].name%></label>
+                    <input type="checkbox" value="<%= categories[i].id %>" name="category" id="<%= i%>">
+                <% }%>
+            <% }%>
+                </div>
+            <button type="submit">Add item</button>
+        </form>
+        <div class="error_box"></div>
+    </div>
+  </main>
+    
+</body>
+</html>

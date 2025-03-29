@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Inventory Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Categories</h2>
-    <% if(locals.categories){%>
-        <ul>
-            <% categories.forEach(cat=>{ %>
-                <%-include('categoryCard.ejs',{cat:cat}) %>
-            <%})%>
-        </ul>
-    <% }%>
-
-    <br>
-    <br>
-    <a href="/categories/create">Add new category</a>
-    <a href="/items/create">Add New Item</a>
+    <h1>Inventory Application</h1>
+    <main>
+        <div class="container">
+            <h2>Categories</h2>
+        <% if(locals.categories){%>
+            <ul>
+                <% categories.forEach(cat=>{ %>
+                    <%-include('categoryCard.ejs',{cat:cat}) %>
+                <%})%>
+            </ul>
+        <% }%>
+    
+       <div class="links">
+        <a href="/categories/create">Add new category</a>
+        <a href="/items/create">Add New Item</a>
+       </div>
+        </div>
+    </main>
 </body>
 </html>
