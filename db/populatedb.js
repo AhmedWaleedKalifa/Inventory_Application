@@ -1,6 +1,7 @@
 const { Client } = require("pg");
 require("dotenv").config();
-
+const path=require("node:path")
+const fs = require('fs');
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
       id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -26,8 +27,15 @@ CREATE TABLE IF NOT EXISTS categories (
 `;
 
 async function runMigrations() {
+  // const client = new Client({
+  //   connectionString: process.env.CONNECTION_STRING
+  // });
   const client = new Client({
-    connectionString: process.env.CONNECTION_STRING
+    connectionString: process.env.CONNECTION_STRING,
+    ssl: {
+      ca: fs.readFileSync(path.resolve(process.env.DB_SSL_CERT)).toString(),
+      rejectUnauthorized: true 
+    }
   });
 
   try {

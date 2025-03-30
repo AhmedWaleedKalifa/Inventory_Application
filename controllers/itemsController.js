@@ -11,8 +11,8 @@ const validateItem = [
 
    body("description")
       .trim()
-      .matches(/^[a-zA-z0-9\s\_]+$/)
-      .withMessage("description must be alphabetic or number or _")
+      .matches(/^[a-zA-z0-9\s\_\,\.\:]+$/)
+      .withMessage("description must be alphabetic or number or, _.")
       .isLength({ min: 1, max: 200 })
       .withMessage("description must be between 1 to 200 characters"),
 
