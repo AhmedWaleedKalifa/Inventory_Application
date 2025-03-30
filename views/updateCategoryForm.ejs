@@ -32,7 +32,7 @@
                         <div class="check_div">
                             <label for="<%=i%>"><%=items[i].name%></label>
                             <% if(categoryItemsIds.includes(items[i].id)){%>
-                                <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>"  class="check">
+                                <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>"  class="check" checked>
                             <%}else{%>
                             <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" class="check">
                             <%}%>
