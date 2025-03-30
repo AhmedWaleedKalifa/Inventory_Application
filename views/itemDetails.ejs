@@ -10,14 +10,27 @@
 <body>
     <h2><%=title %></h2>
     <main>
-        <div class="container">
+        <div class="container ">
             <div class="items_inner_container">
+                <h3><%= item.name%></h3>
+
                 <div class="small_container">
                 <% if(locals.item){%>
-                    <h3><%= item.name%></h3>
-                    <h4>Description: <%= item.description%></h4>
-                    <h4>Quantity: <%= item.quantity%></h4>
-                    <h4>Price: <%= item.price%></h4>
+                   <table>
+                    <tr>
+                        <td>Description:</td>
+                        <td><%= item.description%></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td><%= item.quantity%></td>
+                    </tr>
+                    <tr>
+                        <td>Price: </td>
+                        <td><%= item.price%></td>
+                    </tr>
+                    
+                   </table>
                 <% }%>
                 </div>
             </div>

@@ -40,15 +40,16 @@
                <div class="checkbox">
                 <% if(locals.categories){%>
                     <% for(let i=0;i< categories.length;i++){ %>
-                        <label for="<%=i%>">
-                        <%=categories[i].name%>
-                            </label>
-                            <% if(itemCategories.includes(categories[i].id)){%>
-                                <input type="checkbox" value="<%= categories[i].id %>" name="category[]" id="<%= i%>"
-                                    checked>
-                            <%}else{%>
-                                    <input type="checkbox" value="<%= categories[i].id %>" name="category[]" id="<%= i%>">
-                            <%}%>
+                        <div class="check_div">
+                            <label for="<%=i%>">
+                            <%=categories[i].name%>
+                                </label>
+                                <% if(itemCategories.includes(categories[i].id)){%>
+                                    <input type="checkbox" value="<%= categories[i].id %>" name="category[]" id="<%= i%> " class="check" checked>
+                                <%}else{%>
+                                        <input type="checkbox" value="<%= categories[i].id %>" name="category[]" id="<%= i%>" class="check">
+                                <%}%>
+                        </div>
                     <% }%>
                 <% }%>
                </div>

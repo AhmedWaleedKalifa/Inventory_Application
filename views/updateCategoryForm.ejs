@@ -29,25 +29,20 @@
             <div class="checkbox">
                 <% if(locals.items){%>
                     <% for(let i=0;i< items.length;i++){ %>
-                        <label for="<%=i%>"><%=items[i].name%></label>
-                        <% if(categoryItemsIds.includes(items[i].id)){%>
-                            <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" checked>
-                        <%}else{%>
-                        <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>">
-                        <%}%>
+                        <div class="check_div">
+                            <label for="<%=i%>"><%=items[i].name%></label>
+                            <% if(categoryItemsIds.includes(items[i].id)){%>
+                                <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>"  class="check">
+                            <%}else{%>
+                            <input type="checkbox" value="<%= items[i].id %>" name="items" id="<%= i%>" class="check">
+                            <%}%>
+                        </div>
                     <% }%>
                 <% }%>
             </div>
             <button type="submit">Update</button>
         </form>
             <div class="error_box">
-                <% if(locals.errors){ %>
-                        <% errors.forEach(error=>{ %>
-                            <p class="error">
-                                <%= error.msg %>
-                            </p>
-                        <% }) %>
-                <% } %>
             </div>
     </div>
    </main>

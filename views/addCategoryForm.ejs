@@ -35,10 +35,13 @@
                     <div class="checkbox">
                         <% if(locals.allItems){%>
                             <% for(let i=0;i< allItems.length;i++){%>
-                                <label for="<%= i%>">
-                                    <%= allItems[i].name%>
-                                </label>
-                                <input type="checkbox" name="items" id="<%= i%>" value="<%= allItems[i].id%>">
+                                <div class="check_div">
+                                    <label for="<%= i%>">
+                                        <%= allItems[i].name%>
+                                    </label>
+                                    <input type="checkbox" name="items" id="<%= i%>" value="<%= allItems[i].id%>" class="check">
+                                </div>
+                                
                                 <%} %>
                                     <%}%>
                     </div>
