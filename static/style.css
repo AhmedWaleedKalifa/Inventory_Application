@@ -51,6 +51,9 @@ h4{
     font-weight: 400;
 
 }
+h1,h2,h3,h4{
+    text-transform: capitalize;
+}
 main{
     width: 100%;
     /* background-color: blue; */
@@ -346,12 +349,14 @@ td{
     font-size: 16px;
 }
 
-@media (max-width:540px){
+@media (max-width:570px){
     .buttons{
         gap: 3px;
     }
     li .buttons a,li .buttons button{
-        padding: 2px 4px;
+        height:20px;
+        width: 40px;
+        padding: 4px 4px;
         border-radius: 8px;
         text-decoration: none;
         border: none;

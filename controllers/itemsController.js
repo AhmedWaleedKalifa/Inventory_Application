@@ -32,7 +32,7 @@ const validateItem = [
 module.exports.itemsDetailsGet=async function(req,res){
     const id=req.params.id;
     const item=await db.getItem(id);
-    res.render("itemDetails",{title:"Category details",item:item})
+    res.render("itemDetails",{title:"Item details",item:item})
 }
 module.exports.deleteItemPost=async function (req,res) {
     const id=req.params.id;
