@@ -19,10 +19,11 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
 }
 h1{
     text-align: center;
-    font-size: 36px;
+    font-size: 2rem;
     padding: 20px;
     color: var(--main-color);
     font-weight: 900;
@@ -30,14 +31,14 @@ h1{
 h2{
 
     text-align: center;
-    font-size: 28px;
+    font-size: calc(28/18*1rem);
     padding: 15px;
     font-weight: 700;
     color:var(--main-color);
 }
 h3{
     text-align: center;
-    font-size: 24px;
+    font-size: calc(24/18*1rem);
     padding: 10px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -45,7 +46,7 @@ h3{
 
 }
 h4{
-    font-size: 18px;
+    font-size: 1rem;
     padding: 8px;
     margin-bottom: 10px;
     font-weight: 400;
@@ -64,6 +65,7 @@ main{
     margin: 20px auto;
     background-color: var(--container-color);
     border-radius: 20px;
+    
 
 }
 .container h2{
@@ -79,7 +81,7 @@ ul,.items_inner_container{
     /* background-color: green; */
     padding: 10px;
     width: 90%;
-    height: 70%;
+    height: 60%;
     margin: 0 auto;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -116,7 +118,7 @@ li .buttons a,li .buttons button{
     text-decoration: none;
     border: none;
     color: var(--font-color);
-    font-size: 12px;
+    font-size: calc(12/18*1rem);
     background-color: var(--container-color);
     cursor: pointer;
 }
@@ -163,7 +165,7 @@ ul form {
     /* color: var(--font-color);
     border: 2px solid var(--font-color); */
     display: inline-block;
-    margin: 15px 15px 0 0;
+    margin: 15px 0 0 0;
     padding: 8px 16px;
     border-radius: 20px;
     text-decoration: none;
@@ -190,14 +192,13 @@ ul form {
 }
 .form .error_box .error{
     display: block;
-    margin: 8px;
+    margin: 0 6px;
+    padding: 5px 8px;
     color: red;
-    padding: 12px 15px;
     background-color: var(--error-color);
     border-radius: 20px;
-    width: 400px;
-    height: 50px;
     overflow: hidden;
+    font-size: .5em;
 }
 .form{
     flex-direction: column;
@@ -206,21 +207,23 @@ ul form {
 }
 .form form{
     margin: 0px auto;
-    padding: calc(6%/1.5) calc(4%*1.5);
-    width: 60%;
+    padding: clamp(20px,8%,120px) clamp(20px,4%,80px);
+    /* width: 60%; */
+    width: clamp(300px,60%,800px);
+    height: clamp(300px,80%,600px);
     background-color: var(--main-color);
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 1rem;
 }
 form label{
     display: block;
     font-weight: 500;
     margin:15px 0 5px 0;
-    font-size: 17px;
+    font-size: 1em;
 }
 .form>form>input[type=text],.form>form>input[type=number]{
     padding: 5px 15px;
@@ -228,7 +231,7 @@ form label{
     width: 100%;
     border: 1px solid transparent;
     color: var(--font-color);
-    font-size: 14px;
+    font-size: calc((1em*(14/18)));
 }
 
 .form>form>input[type=text]:focus,.form>form>input[type=number]:focus{
@@ -260,9 +263,10 @@ max-width: 220px;
 max-height: 40px;
 overflow:visible;
 margin: 0 5px;
-font-size: 16px;
+font-size: calc((16/18)*1em);
 flex-shrink: 0;
 }
+
 form .checkbox{
     display: flex;
     align-items: center;
@@ -274,14 +278,15 @@ form .checkbox{
     gap: 10px;
     margin: 0 0 15px 0;
     scrollbar-width:thin;
+    flex-shrink: 0;
 }
 form p{
     margin: 10px 0;
-    font-size: 24px;
+    font-size: calc((24/18)*1em);
 }
  form button{
     margin: 10px auto;
-    font-size: 16px;
+    font-size: calc((16/18)*1em);
     padding: 8px 20px;
     border-radius: 20px;
     cursor: pointer;
@@ -353,10 +358,25 @@ td{
     color: white;
     overflow: hidden;
     font-weight: 400;
-    font-size: 16px;
+    font-size: calc(16/18*1rem);
+}
+@media (max-height:850px){
+    .form form{
+        font-size: 12px;
+    }
+
+}
+@media (max-height:700px){
+    .form form{
+        font-size: 8px;
+    }
+
 }
 
 @media (max-width:800px){
+    body{
+        font-size: 12px;
+    }
     .buttons{
         gap: 3px;
     }
@@ -364,27 +384,52 @@ td{
         height:20px;
         width: 40px;
         padding: 4px 4px;
+        font-size: 8px;    
+    }
+    li b,li span{
+        margin-right: 3px;
+        padding: 0 4px;
+    }
+    li,.container .items_inner_container ul li{
+        height: 35px;
+        padding: 8px;
+        margin:0 0 10px 0;
+
+    }
+}
+@media (max-width:600px){
+    body{
+        font-size: 10px;
+    }
+    li .buttons a,li .buttons button{
+        height:14px;
+        width: 30px;
         border-radius: 8px;
-        text-decoration: none;
-        border: none;
-        color: black;
-        font-size: 8px;
-        background-color: var(--container-color);
-        cursor: pointer;
+        font-size: 6px;
     }
     li b,li span{
         margin-right: 3px;
         display: inline-block;
-        height: 80%;
-        flex-shrink: 1;
-        padding: 0 4px;
-        font-size: 14px;
-
+        padding: 0 3px;
     }
     li,.container .items_inner_container ul li{
         margin:0 0 10px 0;
-        width: 100%;
-        height: 35px;
-        padding: 8px;
+        height: 30px;
+        padding: 6px;
+    }
+    li b{
+        width: 20%;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    li span{
+        width: 25%;
+        flex-grow: 1;
+        flex-basis: 110px;
+        flex-shrink: 1;
+
+    }
+    .container>.links{
+        gap:5px;
     }
 }
