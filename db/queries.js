@@ -16,6 +16,7 @@ async function updateCategory(id,name,description){
     await pool.query("UPDATE  categories SET name=$2, description=$3 WHERE id= $1;",[id,name,description])
 }
 async function deleteCategory(id){
+    if(id)
     await pool.query(`DELETE FROM categories WHERE id= $1;`,[id]);
     await pool.query(` DELETE FROM items
         WHERE id NOT IN (

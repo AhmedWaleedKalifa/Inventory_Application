@@ -81,7 +81,9 @@ ul,.items_inner_container{
     width: 90%;
     height: 70%;
     margin: 0 auto;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
 }
 li,.container .items_inner_container ul li{
     margin:0 0 15px 0;
@@ -130,14 +132,13 @@ li b,li span{
     display: inline-block;
     overflow: hidden;
     height: 80%;
-    flex-shrink: 1;
+    flex-shrink: 0;
     padding: 0 4px;
     font-weight: 300;
 }
 li b{
     width: 25%;
     flex-grow: 1;
-    flex-basis: 100px;
     font-weight: 500;
 }
 li span{
@@ -236,10 +237,10 @@ form label{
 }
 .check_div{
     height: 40px;
-    max-width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 .form form .check{
     opacity: 1;
@@ -253,24 +254,26 @@ form label{
 .form form .check:hover{
     border: 2px solid black;
 }
-form .checkbox input,form .checkbox label{
+form .checkbox .check_div input,form .checkbox .check_div label{
 display: inline;
-max-width: 110px;
+max-width: 220px;
 max-height: 40px;
-overflow: hidden;
-margin: 0 0 0 5px;
+overflow:visible;
+margin: 0 5px;
 font-size: 16px;
+flex-shrink: 0;
 }
 form .checkbox{
-    height: 80px;
-    width: 100%;
     display: flex;
-    align-items:flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 60px;
+    padding: 10px 0;
+    width: 100%;
     gap: 10px;
     margin: 0 0 15px 0;
-    overflow: hidden;
+    scrollbar-width:thin;
 }
 form p{
     margin: 10px 0;
@@ -292,6 +295,10 @@ form p{
     color: var(--container-color);
 } 
 
+.items_inner_container{
+    overflow: auto;
+    height: 100%;
+}
 
 .container .items_inner_container p{
     text-align: center;
@@ -309,7 +316,7 @@ form p{
     margin:20px auto;
     /* background-color: white; */
     border-radius: 20px;
-    width: 80%;
+    width: 100%;
     height: 80%;
     padding:20px 40px;
 }
@@ -349,7 +356,7 @@ td{
     font-size: 16px;
 }
 
-@media (max-width:570px){
+@media (max-width:800px){
     .buttons{
         gap: 3px;
     }
